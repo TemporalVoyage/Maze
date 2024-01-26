@@ -29,3 +29,14 @@ class Cell:
         if self.has_left_wall:
             line = Line(Point(x1, y1), Point(x1, y2))
             self._win.draw_line(line)
+    
+    def draw_move(self, to_cell,undo=False):
+        ax = (self._ulx + self._lrx) / 2
+        ay = (self._uly + self._lry) / 2
+        bx = (to_cell._ulx + to_cell._lrx) / 2
+        by = (to_cell._uly + to_cell._lry) / 2
+        color = "red"
+        if undo:
+            color = "gray"
+        line = Line(Point(ax,ay),Point(bx,by))
+        self._win.draw_line(line,color)
