@@ -45,4 +45,14 @@ class Tests(unittest.TestCase):
             False,
         )
 
+    def test_reset(self):
+        num_cols = 12
+        num_rows = 10
+        widthx = 50
+        widthy = 10
+        m1 = Maze(0, 0, num_rows, num_cols, widthx, widthy)
+        for list in m1._cells:
+            for cell in list:
+                self.assertFalse(cell.visited)
+                
 unittest.main()
